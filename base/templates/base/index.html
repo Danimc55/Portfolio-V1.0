@@ -1,0 +1,93 @@
+{% extends "base/base.html" %}
+    {% block meta %}    
+        <meta name="description" content="Zdravo moje ime je Danijel Tomić. Sem dijak srednje tehniške in poklicne šole Trbovlje. Oglejte si mojo spletno stran, projekte in kmalu tudi članke.">
+        <title>Domača Stran - Danijel Tomić</title>
+        <link rel="canonical" href="https://www.dtomic.com/">
+    {% endblock %}
+    {% block content %}    
+        <!--Gumbi in naslov-->
+        <section class="section primary-background">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-half">
+                    <h1 class="title is-1 has-text-centered has-text-white-bis">Danijel Tomić</h1>
+                    <h2 class="subtitle has-text-centered is-4 has-text-white-bis"><span class="typed">Domača Stran</span></h2>
+                    <div class="buttons are-medium is-centered">
+                        <a href="{% url 'contact' %}"><button class="button is-rounded primary-color">Kontakt</button></a>
+                    </div>      
+                    </div>
+                </div>
+                </div>
+        </section>
+        <img src="https://res.cloudinary.com/delm10g88/image/upload/v1636940139/wave_c1ejpi.svg" alt="wave image for website design">
+    
+    </div>
+    <br>
+    <br>
+    <br>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-three-quarters">
+                    <h2 class="title has-text-centered">O meni</h2>
+                    <div class="columns">
+                        <div class="column is-one-third">
+                            <img src="https://res.cloudinary.com/delm10g88/image/upload/v1636938976/webdev_xqynzk.svg" alt="Illustracija programerja">
+                        </div>
+                        <div class="column">
+                            <p>Zdravo, moje ime je Danijel. Trenutno se šolam na Srednji tehniški in poklicni šoli Trbovlje. Že od malih nog se zanimam za računalnike. Programiram od 13. leta, kjer sem začel z Pythonom.</p>
+                            <br>
+                            <p>Primarno se ukvarjam z razvijanjem spletnih aplikacij, to lahko sklepate saj ste na moji spletni strani. Občasno se poglobim tudi v grafično oblikovanje. Zadnje dve leti se poglabljam v bolj napredne in dinamične spletne strani. Večinoma programiram v programskem jeziku python (tudi ta spletna stran uporablja python), vendar znam tudi javascript in druge jezike.</p>
+                            <br>
+                            <p>V prostem času rad igram kitaro in poslušam glasbo. Vabim vas, da si ogledate nekaj projektov na katerih sem sodeloval.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <!--Projekti-->
+    <h2 class="title has-text-centered">Moji projekti</h2>
+    <h2 class="subtitle has-text-centered">Nekaj projektov kjer sem sodeloval</h2>
+
+    {% for project in projects %}
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-three-quarters">
+                    <div class="box project-box is-multiline">
+                        <div class="container">
+                            <div class="columns">
+                                <div class="column is-centered">
+                                    <h2 class="title is-5 has-text-centered-mobile">{{project.title}}</h2>
+                                    <p>
+                                        {{project.description}}
+                                    </p>
+                                    <br>
+                                    <div class="buttons">
+                                        {% if project.website_link %}
+                                            <button class="button is-rounded" onclick="window.location.href='{{project.website_link}}'">Ogled projekta</button>
+                                        {% endif %}
+                                        {% if project.repo_link %}
+                                            <button class="button is-rounded" onclick="window.location.href='{{project.repo_link}}'">Ogled repositorija</button>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="column is-centered">
+                                    <div class='card-content is-flex project-img-allign'>
+                                        <img src="{{project.image.url}}" alt="{{project.image_alt}}" class="project-img" width="357.84px" height="201.28">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+{% endblock %}
+

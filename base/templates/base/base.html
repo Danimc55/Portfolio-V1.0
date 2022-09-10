@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}
+    
+    {% endblock %}
+    <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/delm10g88/image/upload/v1637075578/favicon/apple-touch-icon_kis6fl.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/delm10g88/image/upload/v1637075579/favicon/favicon-32x32_h9q5iq.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/delm10g88/image/upload/v1637075579/favicon/favicon-16x16_jfo8i5.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://res.cloudinary.com/delm10g88/image/upload/v1637066164/apple-touch-icon-76x76_qcspce.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.dtomic.com/main.css">
+    <link rel="stylesheet" href="https://cdn.dtomic.com/footer.css">
+    <script src="https://kit.fontawesome.com/9e22514715.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--Navbar-->
+    <div class="primary-background">
+        <nav class="navbar primary-background" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <!--Website logo-->
+            <a class="navbar-item" href="{% url 'page'%}">
+                <img src="https://res.cloudinary.com/delm10g88/image/upload/c_scale,h_28,w_128/v1636919560/DanijelTomi%C4%87Icon_dnk6ub.png" width="112" height="28" alt="Logotip za spletno stran">
+            </a>
+            </div>
+        </nav>
+
+            {%block content %} {% endblock %}
+
+    <footer class="footer-distributed">
+
+        <div class="footer-right">
+
+        
+            <a href="https://www.linkedin.com/in/danijelt/"><i class="fa fa-linkedin" style="font-size: 1em"></i></a>
+            <a href="https://github.com/Danimc55"><i class="fa fa-github" style="font-size: 1em"></i></a>
+
+        </div>
+
+        <div class="footer-left">
+
+            <p class="footer-links">
+                <a href="{% url 'page' %}" class="link-1">Domača Stran</a>
+                <a href="{% url 'contact' %}">Kontakt</a>
+            </p>
+
+            <p>Danijel Tomić &copy; 2022</p>
+        </div>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typed = new Typed('.typed',{
+            strings: [
+                "Domača Stran",
+                "Spletni razvijalec",
+                "Grafični oblikovalec",
+                "Dijak Računalništva"
+            ],
+            typeSpeed: 30,
+            backSpeed: 50,
+                loop: true,
+        });
+    </script>
+</body>
+</html>

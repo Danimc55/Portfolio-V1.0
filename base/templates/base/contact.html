@@ -1,0 +1,65 @@
+{% extends "base/base.html" %}
+{% block meta %}    
+    <meta name="description" content="Tukaj me lahko kontaktirate po email obrazcu. Napišite svoje ime, email naslov ter sporočilo, ki mi ga želite poslati. Nato vam jaz odpišem">
+    <title>Danijel Tomić - Kontakt</title>
+    <link rel="canonical" href="https://www.dtomic.com/contact">
+{% endblock %}
+
+{% block content %}
+<section class="section primary-background">
+    <div class="columns is-centered">
+        <div class="column is-half">
+        <h1 class="title is-1 has-text-centered has-text-white-bis">Imate vprašanje?</h1>
+        <h2 class="subtitle has-text-centered is-4 has-text-white-bis">Kontaktirajte me po spodnjemu obrazcu</h2>
+        <div class="buttons are-medium is-centered">
+            <a href="{% url 'page' %}"><button class="button is-rounded primary-color">Vrni se domov</button></a>
+        </div>
+    </div>
+</section> 
+<img src="https://res.cloudinary.com/delm10g88/image/upload/v1636940139/wave_c1ejpi.svg" alt="wave design za oblikovanje">
+<br>
+<br>
+<br>
+<section>
+<div class="container">
+    <div class="box">
+        <form action="" method="POST" class="contact-form">
+            {% csrf_token %}
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Ime</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="npr. Janez Novak" name="name">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input class="input" type="email" placeholder="npr. janez.novak@domena.com" name="email">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Sporočilo</label>
+                <div class="control">
+                    <textarea class="textarea" placeholder="Sporočilo" name="message"></textarea>
+                </div>
+            </div>
+            <br>
+            <div class="control">
+                <button class="button primary-background has-text-white-bis" type = "Submit">Pošlji</button>
+            </div>
+        </form>
+    </div>
+</div>
+</section>
+<br>
+<br>    
+<br>
+{% endblock %}
